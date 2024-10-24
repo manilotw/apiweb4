@@ -1,8 +1,6 @@
 import urllib.parse
 import requests
 import os
-import datetime
-from environs import Env
 
 
 def download_picture(filename, url):
@@ -17,10 +15,6 @@ def get_file_extension(url):
     path = urllib.parse.unquote(path)
     fragment, format = os.path.splitext(path)
     return format
-
-def main():
-
-    api_nasa_apod = ''
 
 
         

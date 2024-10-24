@@ -21,7 +21,7 @@ def main():
     parser.add_argument('--launch_id', help='ID запуска SpaceX')
     args = parser.parse_args()
 
-    launch_id = '5eb87d47ffd86e000604b38a'
+    launch_id = args.launch_id
 
     fetch_spacex_last_launch(launch_id)
 
