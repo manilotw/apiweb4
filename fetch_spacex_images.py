@@ -3,7 +3,7 @@ import argparse
 from general_functions import download_picture
 
 
-def fetch_spacex_last_launch(url, launch_id=None):
+def fetch_spacex_last_launch(launch_id=None):
     if launch_id:
         url = f'https://api.spacexdata.com/v4/launches/{launch_id}'
     else:
@@ -19,8 +19,11 @@ def fetch_spacex_last_launch(url, launch_id=None):
 def main():
     parser = argparse.ArgumentParser(description='Скачать фото запуска SpaceX')
     parser.add_argument('--launch_id', help='ID запуска SpaceX')
-
     args = parser.parse_args()
+
+    launch_id = '5eb87d47ffd86e000604b38a'
+
+    fetch_spacex_last_launch(launch_id)
 
 if __name__ == '__main__':
     main()
