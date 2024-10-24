@@ -7,5 +7,5 @@ env.read_env()
 token = env.str('TG_BOT_TOKEN')
 bot = telegram.Bot(token=token)
 chat_id = '@doubletesttg'
-
-bot.send_message(chat_id=chat_id, text='Hello')
+document = open('images/spacex_1.jpeg', 'rb')
+bot.send_document(chat_id=chat_id, document=document)

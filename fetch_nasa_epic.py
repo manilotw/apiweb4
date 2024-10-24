@@ -17,3 +17,4 @@ def fetch_epic_images(url,count, nasa_api):
         filename = f'images/nasa_epic_{number}.png'
         
         download_picture(filename, url_image)
+
