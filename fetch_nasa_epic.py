@@ -24,10 +24,10 @@ def main():
     env=Env()
     env.read_env()
 
-    NASA_TOKEN = env.str('NASA_TOKEN')
+    nasa_token = env.str('NASA_TOKEN')
     URL = env.str('API_NASA_EPIC')
 
-    fetch_epic_images(URL, 5, NASA_TOKEN)
+    fetch_epic_images(URL, 5, nasa_token)
 
 if __name__ == '__main__':
     main()

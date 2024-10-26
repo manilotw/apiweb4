@@ -27,10 +27,10 @@ def main():
     env = Env()
     env.read_env()
 
-    NASA_API = env.str('NASA_TOKEN')
+    nasa_api = env.str('NASA_TOKEN')
     API_NASA_APOD = env.str('API_NASA_APOD')
 
-    fetch_apod_images(API_NASA_APOD, 30, NASA_API)
+    fetch_apod_images(API_NASA_APOD, 30, nasa_api)
 
 if __name__ == '__main__':
     main()
