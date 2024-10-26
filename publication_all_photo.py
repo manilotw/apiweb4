@@ -10,7 +10,7 @@ def main():
     env.read_env()
 
     bot = telegram.Bot(token=env.str('TG_BOT_TOKEN'))
-    chat_id = '@doubletesttg'
+    chat_id = env.str('TG_CHAT_ID')  
     images_path = 'images'
 
     parser = argparse.ArgumentParser(description='Скрипт для публикаций всех фотографий')

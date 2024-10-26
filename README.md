@@ -53,3 +53,5 @@ python publicatiom_all_photo.py --PUBLICATION_INTERVAL 3600
 - API_NASA_APOD - Ссылка на API NASA APOD
 
 - PUBLICATION_INTERVAL - Интервал публикаций в секундах
+
+- TG_CHAT_ID - ID телеграм-канала начиная с `@` (например: `@channelid`)
