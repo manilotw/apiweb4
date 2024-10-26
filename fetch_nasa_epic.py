@@ -10,11 +10,11 @@ env.read_env()
 def fetch_epic_images(count, nasa_api):
     url = env.str('API_NASA_EPIC')
     
-    for number in range(0, count):
-        response = requests.get(url)
-        response.raise_for_status()
-        epic_images_data = response.json()
-        
+    response = requests.get(url)
+    response.raise_for_status()
+    epic_images_data = response.json()
+    
+    for number in range(0, count):  
         date = epic_images_data[number]['date'].split(' ')[0]
         title = epic_images_data[number]['image']
         datetimedate = datetime.date.fromisoformat(date)
