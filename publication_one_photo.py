@@ -13,7 +13,7 @@ def main():
     chat_id = '@doubletesttg'
     images_path = 'images'
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Скрипт для публикации фотографий")
     parser.add_argument('--file_number', type=int, help='Какую фотографию опубликовать?')
     args = parser.parse_args()
     file_number = args.file_number

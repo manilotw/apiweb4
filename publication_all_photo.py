@@ -14,7 +14,7 @@ def main():
     chat_id = '@doubletesttg'
     images_path = 'images'
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Скрипт для публикаций всех фотографий')
     parser.add_argument('--PUBLICATION_INTERVAL', type=int, help='Интервал для публикаций(в сек.)')
     args = parser.parse_args()
     publocation_interval = args.PUBLICATION_INTERVAL
