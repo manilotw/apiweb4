@@ -14,9 +14,9 @@ def main():
     images_path = 'images'
 
     parser = argparse.ArgumentParser(description='Скрипт для публикаций всех фотографий')
-    parser.add_argument('--PUBLICATION_INTERVAL', type=int, default=14400, help='Интервал для публикаций (в секундах, по умолчанию 14400 сек.)')
+    parser.add_argument('--publication_interval', type=int, default=14400, help='Интервал для публикаций (в секундах, по умолчанию 14400 сек.)')
     args = parser.parse_args()
-    publication_interval = args.PUBLICATION_INTERVAL
+    publication_interval = args.publication_interval
 
     all_files = []
     for dirpath, dirnames, filenames in os.walk(images_path):
