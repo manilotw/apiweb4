@@ -15,11 +15,11 @@ images_path = 'images'
 parser = argparse.ArgumentParser()
 parser.add_argument('--PUBLICATION_INTERVAL', type=int, help='Интервал для публикаций(в сек.)')
 args = parser.parse_args()
-PUBLICATION_INTERVAL = args.PUBLICATION_INTERVAL
+publocation_interval = args.PUBLICATION_INTERVAL
 all_files = []
 
-if PUBLICATION_INTERVAL==None:
-    PUBLICATION_INTERVAL = env.int('PUBLICATION_INTERVAL')
+if publocation_interval==None:
+    publocation_interval = env.int('PUBLICATION_INTERVAL')
 
 for dirpath, dirnames, filenames in os.walk(images_path):
     for file in filenames:
@@ -31,5 +31,5 @@ while True:
     for file in all_files:
         with open(file, 'rb') as image:
             bot.send_document(chat_id=chat_id, document=image)
-        time.sleep(PUBLICATION_INTERVAL)
+        time.sleep(publocation_interval)
 
