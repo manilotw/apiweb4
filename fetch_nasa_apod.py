@@ -20,8 +20,8 @@ def fetch_apod_images(count, nasa_api_key):
 
         response = requests.get(url, params=params)
         response.raise_for_status()
-        json_data = response.json()
-        photo_url = json_data[0]['url']
+        apod_images_data = response.json()
+        photo_url = apod_images_data[0]['url']
         photo_url = urllib.parse.unquote(photo_url)
         fragment, filename = os.path.split(photo_url)
         format = get_file_extension(photo_url)
