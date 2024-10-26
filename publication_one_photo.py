@@ -23,11 +23,13 @@ for dirpath, dirnames, filenames in os.walk(images_path):
         all_files.append(file_path)
 
 if file_number:
-    with open(all_files[file_number-1], 'rb') as image:
-        bot.send_document(chat_id=chat_id, document=image)
+    file = all_files[file_number - 1]
 else:
-    with open(random.choice(all_files), 'rb') as image:
-        bot.send_document(chat_id=chat_id, document=image)
+    file = random.choice(all_files)
+
+with open(file, 'rb') as image:
+    bot.send_document(chat_id=chat_id, document=image)
+
     
         
 
