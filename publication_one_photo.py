@@ -14,7 +14,7 @@ def main():
     images_path = 'images'
 
     parser = argparse.ArgumentParser(description="Скрипт для публикации фотографий")
-    parser.add_argument('--file_number', type=int, help='Какую фотографию опубликовать?')
+    parser.add_argument('--file_number', type=int, help='Номер файла для отправки. Если не указан, отправляется случайный файл')
     args = parser.parse_args()
     file_number = args.file_number
     all_files = []
