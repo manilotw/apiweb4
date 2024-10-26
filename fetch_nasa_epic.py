@@ -4,8 +4,12 @@ from general_functions import download_picture
 from environs import Env
 
 
+env = Env()
+env.read_env()
 
-def fetch_epic_images(url, count, nasa_api):
+def fetch_epic_images(count, nasa_api):
+    url = env.str('API_NASA_EPIC')
+    
     for number in range(0, count):
         response = requests.get(url)
         response.raise_for_status()
@@ -21,13 +25,8 @@ def fetch_epic_images(url, count, nasa_api):
         download_picture(filename, url_image)
 
 def main():
-    env=Env()
-    env.read_env()
-
     nasa_token = env.str('NASA_TOKEN')
-    URL = env.str('API_NASA_EPIC')
-
-    fetch_epic_images(URL, 5, nasa_token)
+    fetch_epic_images(5, nasa_token)
 
 if __name__ == '__main__':
     main()

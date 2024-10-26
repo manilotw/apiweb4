@@ -4,7 +4,13 @@ import os
 from general_functions import download_picture, get_file_extension
 from environs import Env
 
-def fetch_apod_images(url, count, nasa_api):
+
+env = Env()
+env.read_env()
+
+def fetch_apod_images(count, nasa_api):
+    url = env.str('API_NASA_APOD')
+
     for number in range(1, count+1):
 
         params = {
@@ -24,13 +30,9 @@ def fetch_apod_images(url, count, nasa_api):
         download_picture(filename, photo_url)
 
 def main():
-    env = Env()
-    env.read_env()
-
     nasa_api = env.str('NASA_TOKEN')
-    API_NASA_APOD = env.str('API_NASA_APOD')
 
-    fetch_apod_images(API_NASA_APOD, 30, nasa_api)
+    fetch_apod_images(30, nasa_api)
 
 if __name__ == '__main__':
     main()
