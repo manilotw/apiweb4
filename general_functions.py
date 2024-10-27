@@ -3,8 +3,8 @@ import requests
 import os
 
 
-def download_picture(filename, url):
-    response = requests.get(url)
+def download_picture(filename, url, params):
+    response = requests.get(url, params=params)
     response.raise_for_status()
 
     with open (filename, 'wb') as file:
