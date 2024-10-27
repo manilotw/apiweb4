@@ -18,12 +18,12 @@ def fetch_apod_images(image_count, nasa_api_key):
 
     response = requests.get(nasa_apod_url, params=params)
     response.raise_for_status()
-    images_data = response.json()
+    images = response.json()
 
-    for index, image_info in enumerate(images_data):
-        image_url = image_info['url']
+    for index, image in enumerate(images):
+        image_url = image['url']
         image_url = urllib.parse.unquote(image_url)
-        _, filename = os.path.split(image_url)
+        fragment, filename = os.path.split(image_url)
         file_extension = get_file_extension(image_url)
         full_filename = f'images/nasa_apod_{index}{file_extension}'
         

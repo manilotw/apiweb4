@@ -8,8 +8,8 @@ def fetch_spacex_last_launch(launch_id='latest'):
     
     response = requests.get(url)
     response.raise_for_status()
-    spacex_images_data = response.json()
-    photo_links = spacex_images_data['links']['flickr']['original']
+    spacex_images = response.json()
+    photo_links = spacex_images['links']['flickr']['original']
     
     for photo_number, link in enumerate(photo_links):
         filename = f'images/spacex_{photo_number}.jpeg'
