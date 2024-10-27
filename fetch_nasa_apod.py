@@ -4,13 +4,19 @@ import os
 from general_functions import download_picture, get_file_extension
 from environs import Env
 
-def fetch_apod_images(api_url, image_count, nasa_api):
+
+env = Env()
+env.read_env()
+
+def fetch_apod_images(image_count, nasa_api):
+    nasa_apod_url = env.str('API_NASA_APOD')
+
     params = {
         'api_key': nasa_api,
         'count': image_count
     }
 
-    response = requests.get(api_url, params=params)
+    response = requests.get(nasa_apod_url, params=params)
     response.raise_for_status()
     images_data = response.json()
 
@@ -24,13 +30,9 @@ def fetch_apod_images(api_url, image_count, nasa_api):
         download_picture(full_filename, image_url)
 
 def main():
-    env = Env()
-    env.read_env()
-
     nasa_api_key = env.str('NASA_TOKEN')
-    nasa_apod_url = env.str('API_NASA_APOD')
 
-    fetch_apod_images(nasa_apod_url, 30, nasa_api_key)
+    fetch_apod_images(30, nasa_api_key)
 
 if __name__ == '__main__':
     main()
