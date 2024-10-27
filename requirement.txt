@@ -1,2 +1,0 @@
-python-telegram-bot
-environs==9.5.0
