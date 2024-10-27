@@ -8,11 +8,11 @@ from environs import Env
 env = Env()
 env.read_env()
 
-def fetch_apod_images(image_count, nasa_api):
+def fetch_apod_images(image_count, nasa_api_key):
     nasa_apod_url = env.str('API_NASA_APOD')
 
     params = {
-        'api_key': nasa_api,
+        'api_key': nasa_api_key,
         'count': image_count
     }
 
