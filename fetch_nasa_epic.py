@@ -15,7 +15,7 @@ def fetch_epic_images(count, api_key):
         title = epic_images[number]['image']
         formatted_date = datetime.date.fromisoformat(date_str).strftime('%Y/%m/%d')
         
-        url_image_base = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{title}.png'
+        base_image_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{title}.png'
         params = {'api_key': api_key}
         
         download_picture(f'images/nasa_epic_{number}.png', url_image_base, params=params)
@@ -27,7 +27,7 @@ def main():
     nasa_token = env.str('NASA_TOKEN')
     image_count = 5
     nasa_epic_url = env.str('API_NASA_EPIC')
-    
+
     fetch_epic_images(image_count, nasa_token)
 
 if __name__ == '__main__':
