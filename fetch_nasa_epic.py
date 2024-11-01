@@ -26,8 +26,8 @@ def main():
     env.read_env()
 
     nasa_token = env.str('NASA_TOKEN')
-
-    fetch_epic_images(5, nasa_token)
+    image_count = 5
+    fetch_epic_images(image_count, nasa_token)
 
 if __name__ == '__main__':
     main()

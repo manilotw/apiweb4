@@ -29,9 +29,10 @@ def main():
     env = Env()
     env.read_env()
 
+    image_count = 30
     nasa_api_key = env.str('NASA_TOKEN')
 
-    fetch_apod_images(30, nasa_api_key)
+    fetch_apod_images(image_count, nasa_api_key)
 
 if __name__ == '__main__':
     main()
