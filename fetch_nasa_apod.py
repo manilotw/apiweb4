@@ -5,9 +5,6 @@ from general_functions import download_picture, get_file_extension
 from environs import Env
 
 
-env = Env()
-env.read_env()
-
 def fetch_apod_images(image_count, nasa_api_key):
     nasa_apod_url = env.str('API_NASA_APOD')
 
@@ -29,6 +26,9 @@ def fetch_apod_images(image_count, nasa_api_key):
         download_picture(full_filename, image_url)
 
 def main():
+    env = Env()
+    env.read_env()
+
     nasa_api_key = env.str('NASA_TOKEN')
 
     fetch_apod_images(30, nasa_api_key)

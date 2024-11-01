@@ -4,9 +4,6 @@ from general_functions import download_picture
 from environs import Env
 
 
-env = Env()
-env.read_env()
-
 def fetch_epic_images(count, api_key):
     nasa_epic_url = env.str('API_NASA_EPIC')
     
@@ -25,6 +22,9 @@ def fetch_epic_images(count, api_key):
         download_picture(f'images/nasa_epic_{number}.png', url_image_base, params=params)
 
 def main():
+    env = Env()
+    env.read_env()
+
     nasa_token = env.str('NASA_TOKEN')
 
     fetch_epic_images(5, nasa_token)
