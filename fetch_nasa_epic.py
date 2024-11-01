@@ -18,7 +18,7 @@ def fetch_epic_images(count, api_key):
         base_image_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{title}.png'
         params = {'api_key': api_key}
         
-        download_picture(f'images/nasa_epic_{number}.png', url_image_base, params=params)
+        download_picture(f'images/nasa_epic_{number}.png', base_image_url, params=params)
 
 def main():
     env = Env()
