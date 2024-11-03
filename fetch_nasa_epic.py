@@ -6,8 +6,11 @@ from environs import Env
 
 def fetch_epic_images(count, api_key):
     
-    nasa_epic_url = 'https://api.nasa.gov/EPIC/api/natural/images?api_key=DEMO_KEY'
-    response = requests.get(nasa_epic_url)
+    nasa_epic_url = 'https://api.nasa.gov/EPIC/api/natural/images'
+
+    params = {'api_key':api_key}
+    
+    response = requests.get(nasa_epic_url, params=params)
     response.raise_for_status()
     epic_images = response.json()
     
